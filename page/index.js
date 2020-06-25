@@ -52,7 +52,8 @@ module.exports = class extends Generator {
           this.templatePath('_template.page.html'),
           this.destinationPath(`src/client/modules/${lowerCaseName}/${lowerCaseName}.page.html`),
           {
-              name
+              name,
+              lowerCaseName
           }
       )
   }
