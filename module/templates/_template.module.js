@@ -1,7 +1,6 @@
 (function () {
-    'use strict';
-  
-    angular
-      .module('ems.<%= name %>Module', []);
-  })();
-  
+  'use strict';
+
+  angular
+    .module('ems.<%= name %>Module', []);
+})();
