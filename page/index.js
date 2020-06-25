@@ -49,8 +49,8 @@ module.exports = class extends Generator {
 
       // page
       this.fs.copyTpl(
-          this.templatePath('_template.page.js'),
-          this.destinationPath(`src/client/modules/${lowerCaseName}/${lowerCaseName}.page.js`),
+          this.templatePath('_template.page.html'),
+          this.destinationPath(`src/client/modules/${lowerCaseName}/${lowerCaseName}.page.html`),
           {
               name
           }
