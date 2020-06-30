@@ -6,10 +6,10 @@
     .directive('zoll<%= name %>', <%= lowerCaseName %>);
 
   /* @ngInject */
-  function <%= lowerCaseName %> (TEMPLATES) {
+  function <%= lowerCaseName %> (TEMPLATES, Platform) {
     return {
       restrict: 'E',
-      templateUrl: TEMPLATES.<%= lowerCaseName %>,
+      templateUrl: TEMPLATES.<%= lowerCaseName %>[Platform.getPlatform()],
       controller: <%= name %>Controller,
       controllerAs: '<%= lowerCaseName %>',
       scope: {}

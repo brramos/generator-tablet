@@ -10,6 +10,8 @@
     var vm = this;
 
     vm.world = <%= lowerCaseName %>ViewModel.world;
+    vm.title = '<%= name %>';
+    vm.showCreateChartLink = false;
 
   }
 })();
