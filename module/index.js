@@ -1,16 +1,16 @@
 'use strict'
 
 const Generator = require('yeoman-generator')
-const paramCase = require('param-case')
-const pascalCase = require('pascal-case')
+import { paramCase } from 'param-case'
+import { pascalCase } from 'pascal-case'
 
 module.exports = class extends Generator {
   async prompting() {
     this.answers = await this.prompt([
       {
-        type: "input",
-        name: "name",
-        message: "Module name?"
+        type: 'input',
+        name: 'name',
+        message: 'Module name?'
       }
     ])
 
