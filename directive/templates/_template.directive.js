@@ -3,21 +3,21 @@
 
   angular
     .module('ems.common')
-    .directive('zoll<%= name %>', <%= lowerCaseName %>);
+    .directive('zoll<%= pascalCaseName %>', <%= camelCaseName %>);
 
   /* @ngInject */
-  function <%= lowerCaseName %> (TEMPLATES, Platform) {
+  function <%= camelCaseName %> (TEMPLATES, Platform) {
     return {
       restrict: 'E',
-      templateUrl: TEMPLATES.<%= lowerCaseName %>[Platform.getPlatform()],
-      controller: <%= name %>Controller,
-      controllerAs: '<%= lowerCaseName %>',
+      templateUrl: TEMPLATES.<%= camelCaseName %>[Platform.getPlatform()],
+      controller: <%= pascalCaseName %>Controller,
+      controllerAs: '<%= camelCaseName %>',
       scope: {}
     };
   }
 
   /* @ngInject */
-  function <%= name %>Controller () {
+  function <%= pascalCaseName %>Controller () {
     var vm = this;
 
     vm.world = 'World';

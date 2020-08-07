@@ -2,14 +2,14 @@
   'use strict';
 
   angular
-    .module('ems.<%= name %>Module')
-    .controller('<%= name %>Controller', <%= lowerCaseName %>Controller);
+    .module('ems.<%= pascalCaseName %>Module')
+    .controller('<%= pascalCaseName %>Controller', <%= camelCaseName %>Controller);
 
   /* @ngInject */
-  function <%= lowerCaseName %>Controller (<%= lowerCaseName %>ViewModel) {
+  function <%= camelCaseName %>Controller (<%= camelCaseName %>ViewModel) {
     var vm = this;
 
-    vm.world = <%= lowerCaseName %>ViewModel.world;
+    vm.world = <%= camelCaseName %>ViewModel.world;
     vm.title = '<%= name %>';
     vm.showCreateChartLink = false;
 

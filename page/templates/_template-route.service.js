@@ -2,16 +2,16 @@
   'use strict';
 
   angular
-    .module('ems.<%= name %>Module')
-    .factory('<%= name %>RouteService', <%= lowerCaseName %>RouteService);
+    .module('ems.<%= pascalCaseName %>Module')
+    .factory('<%= pascalCaseName %>RouteService', <%= camelCaseName %>RouteService);
 
   /* @ngInject */
-  function <%= lowerCaseName %>RouteService ($rootScope) {
+  function <%= camelCaseName %>RouteService ($rootScope) {
     return {
-      get<%= name %>ViewModel: get<%= name %>ViewModel
+      get<%= pascalCaseName %>ViewModel: get<%= pascalCaseName %>ViewModel
     };
 
-    function get<%= name %>ViewModel () {
+    function get<%= pascalCaseName %>ViewModel () {
       $rootScope.title = '<%= name %>';
 
       return {

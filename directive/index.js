@@ -1,6 +1,9 @@
 'use strict'
 
 const Generator = require('yeoman-generator')
+const paramCase = require('paramCase')
+const pascalCase = require('pascalCase')
+const camelCase = require('camelCase')
 
 module.exports = class extends Generator {
   async prompting() {
@@ -22,29 +25,34 @@ module.exports = class extends Generator {
     const path = this.answers.path
     const name = this.answers.name
     const lowerCaseName = name.toLowerCase()
+    const paramCaseName = paramCase(lowerCaseName)
+    const pascalCaseName = pascalCase(lowerCaseName)
+    const camelCaseName = camelCase(lowerCaseName)
 
     this.fs.copyTpl(
       this.templatePath('_template.directive.js'),
-      this.destinationPath(`src/client/${path}/${lowerCaseName}/${lowerCaseName}.directive.js`),
+      this.destinationPath(`src/client/${path}/${paramCaseName}/${paramCaseName}.directive.js`),
       {
-        name,
-        lowerCaseName
+        pascalCaseName,
+        camelCaseName
       }
     )
 
     this.fs.copyTpl(
       this.templatePath('_template.directive.ios.html'),
-      this.destinationPath(`src/client/${path}/${lowerCaseName}/${lowerCaseName}.directive.ios.html`),
+      this.destinationPath(`src/client/${path}/${paramCaseName}/${paramCaseName}.directive.ios.html`),
       {
-        lowerCaseName
+        paramCaseName,
+        camelCaseName
       }
     )
 
     this.fs.copyTpl(
       this.templatePath('_template.directive.android.html'),
-      this.destinationPath(`src/client/${path}/${lowerCaseName}/${lowerCaseName}.directive.android.html`),
+      this.destinationPath(`src/client/${path}/${paramCaseName}/${paramCaseName}.directive.android.html`),
       {
-        lowerCaseName
+        paramCaseName,
+        camelCaseName
       }
     )
   }

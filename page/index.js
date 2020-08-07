@@ -1,6 +1,9 @@
 'use strict'
 
 const Generator = require('yeoman-generator')
+const paramCase = require('paramCase')
+const pascalCase = require('pascalCase')
+const camelCase = require('camelCase')
 
 module.exports = class extends Generator {
   async prompting() {
@@ -8,7 +11,7 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "name",
-        message: "Page name?"
+        message: "Page name? (Hello World)"
       }
     ])
 
@@ -17,52 +20,56 @@ module.exports = class extends Generator {
   writing() {
     const name = this.answers.name
     const lowerCaseName = name.toLowerCase()
+    const paramCaseName = paramCase(lowerCaseName)
+    const pascalCaseName = pascalCase(lowerCaseName)
+    const camelCaseName = camelCase(lowerCaseName)
 
     // route service
     this.fs.copyTpl(
       this.templatePath('_template-route.service.js'),
-      this.destinationPath(`src/client/modules/${lowerCaseName}/${lowerCaseName}-route.service.js`),
+      this.destinationPath(`src/client/modules/${paramCaseName}/${paramCaseName}-route.service.js`),
       {
         name,
-        lowerCaseName
+        pascalCaseName,
+        camelCaseName
       }
     )
 
     // controller
     this.fs.copyTpl(
       this.templatePath('_template.controller.js'),
-      this.destinationPath(`src/client/modules/${lowerCaseName}/${lowerCaseName}.controller.js`),
+      this.destinationPath(`src/client/modules/${paramCaseName}/${paramCaseName}.controller.js`),
       {
-        name,
-        lowerCaseName
+        pascalCaseName,
+        camelCaseName
       }
     )
 
     // module
     this.fs.copyTpl(
       this.templatePath('_template.module.js'),
-      this.destinationPath(`src/client/modules/${lowerCaseName}/${lowerCaseName}.module.js`),
+      this.destinationPath(`src/client/modules/${paramCaseName}/${paramCaseName}.module.js`),
       {
-        name
+        pascalCaseName
       }
     )
 
     // page
     this.fs.copyTpl(
       this.templatePath('_template.page.ios.html'),
-      this.destinationPath(`src/client/modules/${lowerCaseName}/${lowerCaseName}.page.ios.html`),
+      this.destinationPath(`src/client/modules/${paramCaseName}/${paramCaseName}.page.ios.html`),
       {
         name,
-        lowerCaseName
+        paramCaseName
       }
     )
 
     this.fs.copyTpl(
       this.templatePath('_template.page.android.html'),
-      this.destinationPath(`src/client/modules/${lowerCaseName}/${lowerCaseName}.page.android.html`),
+      this.destinationPath(`src/client/modules/${paramCaseName}/${paramCaseName}.page.android.html`),
       {
         name,
-        lowerCaseName
+        paramCaseName
       }
     )
   }

@@ -1,6 +1,8 @@
 'use strict'
 
 const Generator = require('yeoman-generator')
+const paramCase = require('paramCase')
+const pascalCase = require('pascalCase')
 
 module.exports = class extends Generator {
   async prompting() {
@@ -17,12 +19,14 @@ module.exports = class extends Generator {
   writing() {
     const name = this.answers.name
     const lowerCaseName = name.toLowerCase()
+    const paramCaseName = paramCase(lowerCaseName)
+    const pascalCaseName = pascalCase(lowerCaseName)
 
     this.fs.copyTpl(
       this.templatePath('_template.module.js'),
-      this.destinationPath(`src/client/modules/${lowerCaseName}/${lowerCaseName}.module.js`),
+      this.destinationPath(`src/client/modules/${paramCaseName}/${paramCaseName}.module.js`),
       {
-        name
+        pascalCaseName
       }
     )
   }

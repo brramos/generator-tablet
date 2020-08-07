@@ -2,5 +2,5 @@
   'use strict';
 
   angular
-    .module('ems.<%= name %>Module', []);
+    .module('ems.<%= pascalCaseName %>Module', []);
 })();

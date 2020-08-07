@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('ems.<%= name %>Module')
-    .factory('<%= name %>Service', <%= lowerCaseName %>Service);
+    .module('ems.<%= pascalCaseName %>Module')
+    .factory('<%= pascalCaseName %>Service', <%= camelCaseName %>Service);
 
   /* @ngInject */
-  function <%= lowerCaseName %>Service ($rootScope) {
+  function <%= camelCaseName %>Service ($rootScope) {
     return {
       foo: foo
     };
