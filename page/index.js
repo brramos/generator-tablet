@@ -1,7 +1,7 @@
 'use strict'
 
 const Generator = require('yeoman-generator')
-const paramCase = require('para-case')
+const paramCase = require('param-case')
 const pascalCase = require('pascal-case')
 const camelCase = require('camel-case')
 
