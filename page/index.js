@@ -1,9 +1,9 @@
 'use strict'
 
 const Generator = require('yeoman-generator')
-const paramCase = require('paramCase')
-const pascalCase = require('pascalCase')
-const camelCase = require('camelCase')
+const paramCase = require('para-case')
+const pascalCase = require('pascal-case')
+const camelCase = require('camel-case')
 
 module.exports = class extends Generator {
   async prompting() {
