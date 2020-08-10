@@ -40,6 +40,7 @@ module.exports = class extends Generator {
       this.templatePath('_template.controller.js'),
       this.destinationPath(`src/client/modules/${paramCaseName}/${paramCaseName}.controller.js`),
       {
+        name,
         pascalCaseName,
         camelCaseName
       }
